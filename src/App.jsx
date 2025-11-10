@@ -96,49 +96,76 @@ function App() {
         </div>
       </header>
 
-      {/* Tours & Treks Section */}
-      <section
-        id="tours"
-        style={{
-          padding: "3rem 1rem",
-          backgroundColor: "#fff7e6",
-          borderRadius: "30px",
-          margin: "2rem auto",
-          maxWidth: "900px",
-        }}
-      >
-        <h2 style={{ fontSize: "2.2rem", marginBottom: "1rem" }}>Tours & Treks</h2>
-        <p style={{ fontSize: "1.2rem", color: "#555" }}>
-          Explore breathtaking locations and unforgettable adventures with Tripperfly.
-        </p>
-        <ul style={{ textAlign: "left", marginTop: "1rem", fontSize: "1.1rem" }}>
-          <li>Customized trekking experiences</li>
-          <li>Local sightseeing tours</li>
-          <li>Adventure and outdoor activities</li>
-          <li>Hassle-free bookings</li>
-        </ul>
-      </section>
 
-      {/* Blogs Section */}
-      <section
-        id="blogs"
-        style={{
-          padding: "3rem 1rem",
-          backgroundColor: "#e6f7ff",
-          borderRadius: "30px",
-          margin: "2rem auto",
-          maxWidth: "900px",
-        }}
-      >
-        <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Blogs</h2>
-        {blogs.map((blog, idx) => (
-          <article key={idx} style={{ marginBottom: "1.5rem" }}>
-            <h3>{blog.title}</h3>
-            <p>{blog.summary}</p>
-            <a href={blog.link}>Read more</a>
-          </article>
-        ))}
-      </section>
+<section className="bg-gray-100 py-12 px-6">
+  <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">🏔️ Featured Treks</h2>
+
+  <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    
+    {/* Kuari Pass */}
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+      <img src="/images/kuaripass.jpg" alt="Kuari Pass Trek" className="w-full h-48 object-cover" />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2">Kuari Pass Trek</h3>
+        <p className="text-gray-600 mb-4">
+          Explore the trail once walked by Lord Curzon — breathtaking views of Nanda Devi and the Garhwal Himalayas.
+        </p>
+        <details className="mt-3">
+          <summary className="cursor-pointer font-medium text-orange-600">View Itinerary</summary>
+          <ul className="text-gray-700 mt-2 text-sm list-disc pl-5">
+            <li>Day 1: Arrive at Rishikesh – Trek briefing</li>
+            <li>Day 2: Tugasi to Guling campsite</li>
+            <li>Day 3: Guling to Khulara campsite</li>  
+            <li>Day 4: Trek from Khulara to Kuari Pass summit and back to Khulara campsite</li>
+            <li>Day 5: Descend from Khulara campsite to Tugasi and departure for Rishikesh</li>
+          </ul>
+        </details>
+        <a
+          href="https://wa.me/919799992378?text=Hi%20I%20want%20to%20book%20the%20Kuari%20Pass%20Trek!"
+          className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition mt-4"
+        >
+          Book Now
+        </a>
+      </div>
+    </div>
+
+    {/* Kedarkantha */}
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+      <img src="/images/kedarkantha.jpg" alt="Kedarkantha Trek" className="w-full h-48 object-cover" />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2">Kedarkantha Trek</h3>
+        <p className="text-gray-600 mb-4">
+          The winter wonderland of Uttarakhand! Experience snow trails, pine forests, and summit sunrise views.
+        </p>
+        <a
+          href="https://wa.me/919799992378?text=Hi%20I%20want%20to%20book%20the%20Kedarkantha%20Trek!"
+          className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+        >
+          Book Now
+        </a>
+      </div>
+    </div>
+
+    {/* Aravalli Trails */}
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+      <img src="/images/aravalli.jpg" alt="Aravalli Trek" className="w-full h-48 object-cover" />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2">Aravalli Trails</h3>
+        <p className="text-gray-600 mb-4">
+          Discover Rajasthan’s rugged beauty — hidden lakes, dry forests, and ancient trails near Jaipur.
+        </p>
+        <a
+          href="https://wa.me/919799992378?text=Hi%20I%20want%20to%20book%20the%20Aravalli%20Trek!"
+          className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+        >
+          Book Now
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
       {/* Media / YouTube Section */}
       <section
