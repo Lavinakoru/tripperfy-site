@@ -101,70 +101,75 @@ function App() {
   <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">🏔️ Featured Treks</h2>
 
   <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    
-    {/* Kuari Pass */}
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="/images/kuaripass.jpg" alt="Kuari Pass Trek" className="w-full h-48 object-cover" />
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2">Kuari Pass Trek</h3>
-        <p className="text-gray-600 mb-4">
-          Explore the trail once walked by Lord Curzon — breathtaking views of Nanda Devi and the Garhwal Himalayas.
-        </p>
-        <details className="mt-3">
-          <summary className="cursor-pointer font-medium text-orange-600">View Itinerary</summary>
-          <ul className="text-gray-700 mt-2 text-sm list-disc pl-5">
-            <li>Day 1: Arrive at Rishikesh – Trek briefing</li>
-            <li>Day 2: Tugasi to Guling campsite</li>
-            <li>Day 3: Guling to Khulara campsite</li>  
-            <li>Day 4: Trek from Khulara to Kuari Pass summit and back to Khulara campsite</li>
-            <li>Day 5: Descend from Khulara campsite to Tugasi and departure for Rishikesh</li>
-          </ul>
-        </details>
-        <a
-          href="https://wa.me/919799992378?text=Hi%20I%20want%20to%20book%20the%20Kuari%20Pass%20Trek!"
-          className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition mt-4"
-        >
-          Book Now
-        </a>
-      </div>
-    </div>
+    {[
+      {
+        name: "Kuari Pass Trek",
+        image: "/images/kuari.jpeg",
+        description:
+          "Explore the trail once walked by Lord Curzon — breathtaking views of Nanda Devi and the Garhwal Himalayas.",
+        itinerary: [
+          "Day 1: Arrive at Rishikesh – Trek briefing",
+          "Day 2: Tugasi to Guling campsite",
+          "Day 3: Guling to Khulara campsite",
+          "Day 4: Trek from Khulara to Kuari Pass summit and back to Khulara campsite",
+          "Day 5: Descend from Khulara campsite to Tugasi and departure for Rishikesh",
+        ],
+      },
+      {
+        name: "Kedarkantha Trek",
+        image: "/images/kedarkantha.jpg",
+        description:
+          "The winter wonderland of Uttarakhand! Experience snow trails, pine forests, and summit sunrise views.",
+        itinerary: null,
+      },
+      {
+        name: "Aravalli Trails",
+        image: "/images/aravali.jpg",
+        description:
+          "Discover Rajasthan’s rugged beauty — hidden lakes, dry forests, and ancient trails near Jaipur.",
+        itinerary: null,
+      },
+    ].map((trek, idx) => (
+      <div
+        key={idx}
+        className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition"
+      >
+        <img
+          src={trek.image}
+          alt={trek.name}
+          className="w-full h-48 object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">{trek.name}</h3>
+          <p className="text-gray-600 mb-4">{trek.description}</p>
 
-    {/* Kedarkantha */}
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="/images/kedarkantha.jpg" alt="Kedarkantha Trek" className="w-full h-48 object-cover" />
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2">Kedarkantha Trek</h3>
-        <p className="text-gray-600 mb-4">
-          The winter wonderland of Uttarakhand! Experience snow trails, pine forests, and summit sunrise views.
-        </p>
-        <a
-          href="https://wa.me/919799992378?text=Hi%20I%20want%20to%20book%20the%20Kedarkantha%20Trek!"
-          className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
-        >
-          Book Now
-        </a>
-      </div>
-    </div>
+          {trek.itinerary && (
+            <details className="mt-3">
+              <summary className="cursor-pointer font-medium text-orange-600">
+                View Itinerary
+              </summary>
+              <ul className="text-gray-700 mt-2 text-sm list-disc pl-5">
+                {trek.itinerary.map((day, i) => (
+                  <li key={i}>{day}</li>
+                ))}
+              </ul>
+            </details>
+          )}
 
-    {/* Aravalli Trails */}
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="/images/aravalli.jpg" alt="Aravalli Trek" className="w-full h-48 object-cover" />
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2">Aravalli Trails</h3>
-        <p className="text-gray-600 mb-4">
-          Discover Rajasthan’s rugged beauty — hidden lakes, dry forests, and ancient trails near Jaipur.
-        </p>
-        <a
-          href="https://wa.me/919799992378?text=Hi%20I%20want%20to%20book%20the%20Aravalli%20Trek!"
-          className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
-        >
-          Book Now
-        </a>
+          <a
+            href={`https://wa.me/919799992378?text=Hi%20I%20want%20to%20book%20the%20${encodeURIComponent(
+              trek.name
+            )}!`}
+            className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition mt-4"
+          >
+            Book Now
+          </a>
+        </div>
       </div>
-    </div>
-
+    ))}
   </div>
 </section>
+
 
 
       {/* Media / YouTube Section */}
@@ -231,6 +236,19 @@ function App() {
             www.tripperfly.in
           </a>
         </p>
+        <p style={{ fontSize: "1.2rem" }}>
+          Email:{" "}
+          <a
+            href="mailto:tripperfly.care@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#ff6600" }}
+          >
+            tripperfly.care@gmail.com
+          </a>
+        </p>
+        
+        
       </section>
     </div>
   );
