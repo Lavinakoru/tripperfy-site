@@ -131,7 +131,7 @@ function App() {
         description:
           "Discover Rajasthan’s rugged beauty — hidden lakes, dry forests, and ancient trails near Jaipur.",
         itinerary: null,
-      },git add .
+      },
     ].map((trek, idx) => (
       <div
         key={idx}
