@@ -19,7 +19,10 @@ function App() {
   // Example YouTube videos (replace YOUR_VIDEO_ID)
   const videos = [
     "tY1iiMZkHP8",
-    "6kFk13HfNNE"
+    "6kFk13HfNNE",
+    "AVJ6Pztv_yM",
+    "n5eVzyNZHlc",
+    "Jl56to_9WIA"
   ];
 
   return (
@@ -128,7 +131,7 @@ function App() {
         description:
           "Discover Rajasthan’s rugged beauty — hidden lakes, dry forests, and ancient trails near Jaipur.",
         itinerary: null,
-      },
+      },git add .
     ].map((trek, idx) => (
       <div
         key={idx}
