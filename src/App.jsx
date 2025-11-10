@@ -80,7 +80,7 @@ function App() {
           </a>
 
           <a
-            href="#tours"
+            href="https://wa.me/919799992378"
             style={{
               padding: "1rem 2rem",
               backgroundColor: "#ff3300",
