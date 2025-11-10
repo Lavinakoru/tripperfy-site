@@ -117,14 +117,14 @@ function App() {
       },
       {
         name: "Kedarkantha Trek",
-        image: "/images/kedarkantha.jpg",
+        image: "/images/kedarkantha.jpeg",
         description:
           "The winter wonderland of Uttarakhand! Experience snow trails, pine forests, and summit sunrise views.",
         itinerary: null,
       },
       {
         name: "Aravalli Trails",
-        image: "/images/aravali.jpg",
+        image: "/images/aravali.jpeg",
         description:
           "Discover Rajasthan’s rugged beauty — hidden lakes, dry forests, and ancient trails near Jaipur.",
         itinerary: null,
