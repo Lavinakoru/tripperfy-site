@@ -26,7 +26,10 @@ function App() {
   ];
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", color: "#333" }}>
+    <div style={{ fontFamily: "Arial, sans-serif", color: "#333", 
+      backgroundColor: "#9ccbddf5", // blue background
+      padding: "0 2rem",           // mobile-friendly padding
+    }}>
       
       {/* Navigation */}
       <nav style={{ backgroundColor: "#ff6600", padding: "1rem", textAlign: "center" }}>
@@ -53,17 +56,15 @@ function App() {
           alt="Tripperfly Logo"
           style={{ width: "180px", marginBottom: "1rem" }}
         />
-        <h1 style={{ fontSize: "3rem", margin: "0.5rem 0" }}>Tripperfly</h1>
-        <p style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+        <h1 style={{ fontSize: "6rem", margin: "1.5rem 0" }}>Tripper Fly</h1>
+        <p style={{ fontSize: "2.5rem", fontWeight: "bold" }}>
           Trip per fly karo, Tripperfly karo!
         </p>
         <div style={{ marginTop: "2rem" }}>
-          <h1 className="text-4xl text-orange-500 font-bold">Tailwind is Working!</h1>
           <a
             href="https://wa.me/919799992378"
             target="_blank"
             rel="noopener noreferrer"
-            
             style={{
               padding: "1rem 2rem",
               marginRight: "1rem",
@@ -103,7 +104,7 @@ function App() {
 
 
 <section className="bg-gray-100 py-12 px-6">
-  <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">🏔️ Featured Treks</h2>
+  <h2 className="text-3xl font-bold text-center mb-25 text-gray-800">🏔️ Featured Treks</h2>
 
   <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
     {[
