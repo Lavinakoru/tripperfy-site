@@ -58,10 +58,12 @@ function App() {
           Trip per fly karo, Tripperfly karo!
         </p>
         <div style={{ marginTop: "2rem" }}>
+          <h1 className="text-4xl text-orange-500 font-bold">Tailwind is Working!</h1>
           <a
             href="https://wa.me/919799992378"
             target="_blank"
             rel="noopener noreferrer"
+            
             style={{
               padding: "1rem 2rem",
               marginRight: "1rem",
