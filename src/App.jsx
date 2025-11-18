@@ -1,43 +1,91 @@
 import React from "react";
 import "./App.css";
+import BlogsSection from "./BlogsSection";
 
 function App() {
-  // Example blog posts
   const blogs = [
     {
       title: "Top 5 Treks in India",
       summary: "Discover breathtaking treks from the Himalayas to the Western Ghats...",
-      link: "#"
+      link: "#",
     },
     {
       title: "Travel Tips for Beginners",
       summary: "Everything you need to know before your first adventure...",
-      link: "#"
+      link: "#",
     },
   ];
 
-  // Example YouTube videos (replace YOUR_VIDEO_ID)
-  const videos = [
-    "tY1iiMZkHP8",
-    "6kFk13HfNNE",
-    "AVJ6Pztv_yM",
-    "n5eVzyNZHlc",
-    "Jl56to_9WIA"
+  const videos = ["tY1iiMZkHP8", "6kFk13HfNNE", "AVJ6Pztv_yM", "n5eVzyNZHlc", "Jl56to_9WIA"];
+
+  const treks = [
+    {
+      name: "Kuari Pass Trek",
+      image: "/images/kuari.jpeg",
+      description:
+        "Explore the trail once walked by Lord Curzon — breathtaking views of Nanda Devi and the Garhwal Himalayas.",
+      itinerary: [
+        "Day 1: Arrive at Rishikesh – Trek briefing",
+        "Day 2: Tugasi to Guling campsite",
+        "Day 3: Guling to Khulara campsite",
+        "Day 4: Trek from Khulara to Kuari Pass summit and back",
+        "Day 5: Descend to Tugasi and depart for Rishikesh",
+      ],
+    },
+    {
+      name: "Kedarkantha Trek",
+      image: "/images/kedarkantha.jpeg",
+      description:
+        "The winter wonderland of Uttarakhand! Experience snow trails, pine forests, and sunrise summit views.",
+      itinerary: null,
+    },
+    {
+      name: "Aravalli Trails",
+      image: "/images/aravali.jpeg",
+      description:
+        "Discover Rajasthan’s rugged beauty — hidden lakes, dry forests, and ancient trails near Jaipur.",
+      itinerary: null,
+    },
   ];
 
+  // ⭐ No horizontal scroll
+  const containerStyle = {
+    fontFamily: "Arial, sans-serif",
+    backgroundColor: "#c7e2ef",
+    width: "100%",
+    maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "0",
+    overflowX: "hidden",
+  };
+
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", color: "#333", 
-      backgroundColor: "#9ccbddf5", // blue background
-      padding: "0 2rem",           // mobile-friendly padding
-    }}>
-      
+    <div style={containerStyle}>
       {/* Navigation */}
-      <nav style={{ backgroundColor: "#ff6600", padding: "1rem", textAlign: "center" }}>
-        <a href="#home" style={{ margin: "0 1rem", color: "#fff", fontWeight: "bold", textDecoration: "none" }}>Home</a>
-        <a href="#tours" style={{ margin: "0 1rem", color: "#fff", fontWeight: "bold", textDecoration: "none" }}>Tours</a>
-        <a href="#blogs" style={{ margin: "0 1rem", color: "#fff", fontWeight: "bold", textDecoration: "none" }}>Blogs</a>
-        <a href="#media" style={{ margin: "0 1rem", color: "#fff", fontWeight: "bold", textDecoration: "none" }}>Media</a>
-        <a href="#contact" style={{ margin: "0 1rem", color: "#fff", fontWeight: "bold", textDecoration: "none" }}>Contact</a>
+      <nav
+        style={{
+          backgroundColor: "#ff6600",
+          padding: "1rem",
+          textAlign: "center",
+          borderRadius: "10px",
+          marginTop: "1rem",
+        }}
+      >
+        {["Home", "Tours", "Blogs", "Media", "Contact"].map((i) => (
+          <a
+            key={i}
+            href={"#" + i.toLowerCase()}
+            style={{
+              margin: "0 1rem",
+              color: "#fff",
+              fontWeight: "bold",
+              textDecoration: "none",
+              fontSize: "clamp(0.9rem, 2vw, 1.2rem)",
+            }}
+          >
+            {i}
+          </a>
+        ))}
       </nav>
 
       {/* Hero Section */}
@@ -46,38 +94,52 @@ function App() {
         style={{
           background: "linear-gradient(135deg, #ff6600, #ffcc00)",
           color: "#fff",
-          padding: "3rem 1rem",
+          padding: "2.5rem 1rem",
           textAlign: "center",
-          borderRadius: "0 0 50% 50%",
+          borderRadius: "20px",
+          marginTop: "1.5rem",
         }}
       >
         <img
           src="/tripperflylogo.jpeg"
           alt="Tripperfly Logo"
-          style={{ width: "180px", marginBottom: "1rem" }}
+          style={{ width: "250px", marginBottom: "5rem", borderRadius: "20px" }}
         />
-        <h1 style={{ fontSize: "6rem", margin: "1.5rem 0" }}>Tripper Fly</h1>
-        <p style={{ fontSize: "2.5rem", fontWeight: "bold" }}>
+
+        <h1
+          style={{
+            fontSize: "clamp(2rem, 6vw, 3.5rem)",
+            margin: "1rem 0",
+            fontWeight: 800,
+          }}
+        >
+          Tripper Fly
+        </h1>
+
+        <p
+          style={{
+            fontSize: "clamp(1rem, 4vw, 1.4rem)",
+            fontWeight: "bold",
+          }}
+        >
           Trip per fly karo, Tripperfly karo!
         </p>
+
         <div style={{ marginTop: "2rem" }}>
           <a
             href="https://wa.me/919799992378"
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              padding: "1rem 2rem",
+              padding: "0.8rem 1.5rem",
               marginRight: "1rem",
               backgroundColor: "#25D366",
               color: "#fff",
               fontWeight: "bold",
               textDecoration: "none",
-              borderRadius: "30px",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-              transition: "all 0.3s ease",
+              borderRadius: "25px",
+              display: "inline-block",
             }}
-            onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             WhatsApp Us
           </a>
@@ -85,176 +147,226 @@ function App() {
           <a
             href="https://wa.me/919799992378"
             style={{
-              padding: "1rem 2rem",
+              padding: "0.8rem 1.5rem",
               backgroundColor: "#ff3300",
               color: "#fff",
               fontWeight: "bold",
               textDecoration: "none",
-              borderRadius: "30px",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-              transition: "all 0.3s ease",
+              borderRadius: "25px",
+              display: "inline-block",
             }}
-            onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             Book Now
           </a>
         </div>
       </header>
 
-
-<section className="bg-gray-100 py-12 px-6">
-  <h2 className="text-3xl font-bold text-center mb-25 text-gray-800">🏔️ Featured Treks</h2>
-
-  <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    {[
-      {
-        name: "Kuari Pass Trek",
-        image: "/images/kuari.jpeg",
-        description:
-          "Explore the trail once walked by Lord Curzon — breathtaking views of Nanda Devi and the Garhwal Himalayas.",
-        itinerary: [
-          "Day 1: Arrive at Rishikesh – Trek briefing",
-          "Day 2: Tugasi to Guling campsite",
-          "Day 3: Guling to Khulara campsite",
-          "Day 4: Trek from Khulara to Kuari Pass summit and back to Khulara campsite",
-          "Day 5: Descend from Khulara campsite to Tugasi and departure for Rishikesh",
-        ],
-      },
-      {
-        name: "Kedarkantha Trek",
-        image: "/images/kedarkantha.jpeg",
-        description:
-          "The winter wonderland of Uttarakhand! Experience snow trails, pine forests, and summit sunrise views.",
-        itinerary: null,
-      },
-      {
-        name: "Aravalli Trails",
-        image: "/images/aravali.jpeg",
-        description:
-          "Discover Rajasthan’s rugged beauty — hidden lakes, dry forests, and ancient trails near Jaipur.",
-        itinerary: null,
-      },
-    ].map((trek, idx) => (
-      <div
-        key={idx}
-        className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition"
-      >
-        <img
-          src={trek.image}
-          alt={trek.name}
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">{trek.name}</h3>
-          <p className="text-gray-600 mb-4">{trek.description}</p>
-
-          {trek.itinerary && (
-            <details className="mt-3">
-              <summary className="cursor-pointer font-medium text-orange-600">
-                View Itinerary
-              </summary>
-              <ul className="text-gray-700 mt-2 text-sm list-disc pl-5">
-                {trek.itinerary.map((day, i) => (
-                  <li key={i}>{day}</li>
-                ))}
-              </ul>
-            </details>
-          )}
-
-          <a
-            href={`https://wa.me/919799992378?text=Hi%20I%20want%20to%20book%20the%20${encodeURIComponent(
-              trek.name
-            )}!`}
-            className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition mt-4"
-          >
-            Book Now
-          </a>
-        </div>
+      {/* ⭐ INSERTED BLOG SECTION HERE */}
+      <div id="blogs">
+        <BlogsSection />
       </div>
-    ))}
-  </div>
-</section>
 
+      {/* Featured Treks */}
+      <section style={{ marginTop: "3rem" }}>
+        <h2
+          style={{
+            textAlign: "center",
+            fontSize: "clamp(1.5rem, 5vw, 2.4rem)",
+            fontWeight: "900",
+            color: "#333",
+            marginBottom: "2rem",
+          }}
+        >
+          🏔️ Featured Treks
+        </h2>
 
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "1.5rem",
+          }}
+        >
+          {treks.map((trek, idx) => (
+            <div
+              key={idx}
+              style={{
+                background: "#fff",
+                borderRadius: "15px",
+                overflow: "hidden",
+                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <img
+                src={trek.image}
+                alt={trek.name}
+                style={{
+                  width: "100%",
+                  height: "220px",
+                  objectFit: "cover",
+                }}
+              />
 
-      {/* Media / YouTube Section */}
+              <div style={{ padding: "1rem" }}>
+                <h3
+                  style={{
+                    fontSize: "clamp(1.3rem, 3vw, 1.8rem)",
+                    fontWeight: "700",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  {trek.name}
+                </h3>
+
+                <p
+                  style={{
+                    color: "#555",
+                    lineHeight: "1.5",
+                    fontSize: "clamp(0.95rem, 2.2vw, 1.1rem)",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {trek.description}
+                </p>
+
+                {trek.itinerary && (
+                  <details style={{ marginBottom: "1rem" }}>
+                    <summary
+                      style={{
+                        cursor: "pointer",
+                        fontWeight: "bold",
+                        color: "#ff6600",
+                        fontSize: "clamp(1rem, 2.4vw, 1.3rem)",
+                      }}
+                    >
+                      View Itinerary
+                    </summary>
+
+                    <ul
+                      style={{
+                        fontSize: "clamp(0.95rem, 2vw, 1.1rem)",
+                        marginTop: "0.5rem",
+                        paddingLeft: "1.2rem",
+                        lineHeight: "1.5",
+                      }}
+                    >
+                      {trek.itinerary.map((day, i) => (
+                        <li key={i}>{day}</li>
+                      ))}
+                    </ul>
+                  </details>
+                )}
+
+                <a
+                  href={`https://wa.me/919799992378?text=Hi%20I%20want%20to%20book%20the%20${encodeURIComponent(
+                    trek.name
+                  )}!`}
+                  style={{
+                    display: "inline-block",
+                    backgroundColor: "#25D366",
+                    color: "#fff",
+                    padding: "0.7rem 1.2rem",
+                    borderRadius: "8px",
+                    fontWeight: "bold",
+                    textDecoration: "none",
+                    fontSize: "1rem",
+                  }}
+                >
+                  Book Now
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Videos */}
       <section
         id="media"
         style={{
-          padding: "3rem 1rem",
-          backgroundColor: "#fff0f5",
-          borderRadius: "30px",
-          margin: "2rem auto",
-          maxWidth: "900px",
+          marginTop: "3rem",
+          background: "#fff",
+          padding: "1.5rem",
+          borderRadius: "15px",
         }}
       >
-        <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Videos</h2>
-        <div style={{ display: "flex", justifyContent: "center", gap: "2rem", flexWrap: "wrap" }}>
+        <h2
+          style={{
+            fontSize: "clamp(1.6rem, 4vw, 2rem)",
+            marginBottom: "1rem",
+            fontWeight: "800",
+          }}
+        >
+          Videos
+        </h2>
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "1rem",
+            justifyContent: "center",
+          }}
+        >
           {videos.map((id, idx) => (
             <iframe
               key={idx}
-              width="300"
-              height="200"
+              width="280"
+              height="170"
               src={`https://www.youtube.com/embed/${id}`}
               title="YouTube video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              style={{ borderRadius: "10px" }}
             ></iframe>
           ))}
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact */}
       <section
         id="contact"
         style={{
-          padding: "3rem 1rem",
-          backgroundColor: "#f0f8ff",
-          borderRadius: "30px",
-          margin: "2rem auto",
-          maxWidth: "900px",
+          background: "#fff",
+          padding: "1.5rem",
+          borderRadius: "15px",
+          marginTop: "3rem",
+          marginBottom: "3rem",
         }}
       >
-        <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Get in Touch</h2>
-        <p style={{ fontSize: "1.2rem" }}>
+        <h2
+          style={{
+            fontSize: "clamp(1.6rem, 4vw, 2rem)",
+            fontWeight: "800",
+            marginBottom: "1rem",
+          }}
+        >
+          Get in Touch
+        </h2>
+
+        <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
           Contact: <strong>9799992378</strong>
         </p>
-        <p style={{ fontSize: "1.2rem" }}>
+
+        <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
           Instagram:{" "}
-          <a
-            href="https://instagram.com/tripperfly"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#ff6600" }}
-          >
+          <a href="https://instagram.com/tripperfly" style={{ color: "#ff6600" }}>
             @tripperfly
           </a>
         </p>
-        <p style={{ fontSize: "1.2rem" }}>
+
+        <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
           Website:{" "}
-          <a
-            href="https://www.tripperfly.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#ff6600" }}
-          >
+          <a href="https://www.tripperfly.in" style={{ color: "#ff6600" }}>
             www.tripperfly.in
           </a>
         </p>
-        <p style={{ fontSize: "1.2rem" }}>
+
+        <p style={{ fontSize: "1.1rem" }}>
           Email:{" "}
-          <a
-            href="mailto:tripperfly.care@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#ff6600" }}
-          >
+          <a href="mailto:tripperfly.care@gmail.com" style={{ color: "#ff6600" }}>
             tripperfly.care@gmail.com
           </a>
         </p>
-        
-        
       </section>
     </div>
   );
