@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import BlogsSection from "./BlogsSection";
 
-function App() {
+function App() {const [isScrolled, setIsScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
   const blogs = [
     {
       title: "Top 5 Treks in India",
@@ -51,7 +65,7 @@ function App() {
   // ⭐ No horizontal scroll
   const containerStyle = {
     fontFamily: "Arial, sans-serif",
-    backgroundColor: "#c7e2ef",
+    backgroundColor: "#71bedaff",
     width: "100%",
     maxWidth: "1200px",
     margin: "0 auto",
@@ -62,15 +76,29 @@ function App() {
   return (
     <div style={containerStyle}>
       {/* Navigation */}
-      <nav
-        style={{
-          backgroundColor: "#ff6600",
-          padding: "1rem",
-          textAlign: "center",
-          borderRadius: "10px",
-          marginTop: "1rem",
-        }}
+    <nav
+      style={{
+        backdropFilter: "blur(6px)",
+        backgroundColor: isScrolled ? "rgba(255,102,0,0.92)" : "#ff6600",
+
+      padding: isScrolled ? "0.3rem" : "1rem",
+      borderRadius: "10px",
+      marginTop: "1rem",
+      transition: "all 0.3s ease",
+
+      position: "sticky",
+      top: "0",
+      zIndex: "1000",
+
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      gap: isScrolled ? "0.4rem" : "0.7rem",
+
+     boxShadow: isScrolled ? "0 4px 10px rgba(0,0,0,0.35)" : "none",
+     }}
       >
+
         {["Home", "Tours", "Blogs", "Media", "Contact"].map((i) => (
           <a
             key={i}
@@ -80,31 +108,33 @@ function App() {
               color: "#fff",
               fontWeight: "bold",
               textDecoration: "none",
-              fontSize: "clamp(0.9rem, 2vw, 1.2rem)",
+              fontSize: isScrolled ? "0.9rem" : "1.1rem",
+              transition: "font-size 0.3s ease",
             }}
           >
             {i}
           </a>
         ))}
       </nav>
+      <div style={{ height: "10px" }} />
 
       {/* Hero Section */}
       <header
         id="home"
         style={{
-          background: "linear-gradient(135deg, #ff6600, #ffcc00)",
+          background: "linear-gradient(135deg, #060606ff, #060606ff)",
           color: "#fff",
-          padding: "2.5rem 1rem",
+          padding: "1rem 1rem",
           textAlign: "center",
           borderRadius: "20px",
-          marginTop: "1.5rem",
+          marginTop: "1rem",
         }}
       >
         <img
           src="/tripperflylogo.jpeg"
           alt="Tripperfly Logo"
-          style={{ width: "250px", marginBottom: "5rem", borderRadius: "20px" }}
-        />
+          style={{   width: "clamp(220px, 40vw, 380px)",  display: "block",  margin: "0 auto 1rem", borderRadius: "20px" }}
+         />
 
         <h1
           style={{
@@ -113,7 +143,7 @@ function App() {
             fontWeight: 800,
           }}
         >
-          Tripper Fly
+          TripperFly
         </h1>
 
         <p
@@ -122,17 +152,22 @@ function App() {
             fontWeight: "bold",
           }}
         >
-          Trip per fly karo, Tripperfly karo!
+          Har trip pe fly karo, Tripperfly karo!
         </p>
 
-        <div style={{ marginTop: "2rem" }}>
+        <div style={{
+          marginTop: "2rem",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "1rem"
+          }}>
           <a
             href="https://wa.me/919799992378"
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              padding: "0.8rem 1.5rem",
-              marginRight: "1rem",
+              padding: "0.8rem 1.5rem",              
               backgroundColor: "#25D366",
               color: "#fff",
               fontWeight: "bold",
@@ -168,17 +203,17 @@ function App() {
 
       {/* Featured Treks */}
       <section style={{ marginTop: "3rem" }}>
-        <h2
-          style={{
-            textAlign: "center",
-            fontSize: "clamp(1.5rem, 5vw, 2.4rem)",
-            fontWeight: "900",
-            color: "#333",
-            marginBottom: "2rem",
-          }}
-        >
-          🏔️ Featured Treks
-        </h2>
+  <h2
+    style={{
+      textAlign: "center",
+      fontSize: "clamp(1.5rem, 5vw, 2.4rem)",
+      fontWeight: "900",
+      color: "#333",
+      marginBottom: "2rem",
+    }}
+  >
+    🏔️ Featured Treks
+  </h2>
 
         <div
           style={{
@@ -194,7 +229,7 @@ function App() {
                 background: "#fff",
                 borderRadius: "15px",
                 overflow: "hidden",
-                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
               }}
             >
               <img
@@ -308,17 +343,20 @@ function App() {
             justifyContent: "center",
           }}
         >
-          {videos.map((id, idx) => (
-            <iframe
-              key={idx}
-              width="280"
-              height="170"
-              src={`https://www.youtube.com/embed/${id}`}
-              title="YouTube video"
-              allowFullScreen
-              style={{ borderRadius: "10px" }}
-            ></iframe>
-          ))}
+         {videos.map((id, idx) => (
+       <iframe
+         key={idx}
+         src={`https://www.youtube.com/embed/${id}`}
+          title="YouTube video"
+          allowFullScreen
+          style={{
+          width: "100%",
+          maxWidth: "320px",
+          height: "180px",
+          borderRadius: "10px"
+          }}
+       ></iframe>
+      ))}
         </div>
       </section>
 
