@@ -179,20 +179,21 @@ useEffect(() => {
             WhatsApp Us
           </a>
 
-          <a
-            href="https://wa.me/919799992378"
-            style={{
-              padding: "0.8rem 1.5rem",
-              backgroundColor: "#ff3300",
-              color: "#fff",
-              fontWeight: "bold",
-              textDecoration: "none",
-              borderRadius: "25px",
-              display: "inline-block",
-            }}
-          >
-            Book Now
-          </a>
+         <a
+  href="#book-now"
+  style={{
+    padding: "0.8rem 1.5rem",
+    backgroundColor: "#ff3300",
+    color: "#fff",
+    fontWeight: "bold",
+    textDecoration: "none",
+    borderRadius: "25px",
+    display: "inline-block",
+  }}
+>
+  Book Now
+</a>
+
         </div>
       </header>
 
@@ -359,6 +360,91 @@ useEffect(() => {
       ))}
         </div>
       </section>
+      
+      {/* Book Now Form */}
+      <section
+        id="book-now"
+        style={{
+          background: "#fff",
+          padding: "2rem",
+          borderRadius: "15px",
+          marginTop: "3rem",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "clamp(1.6rem, 4vw, 2.2rem)",
+            fontWeight: "900",
+            marginBottom: "1rem",
+            textAlign: "center",
+          }}
+        >
+          🧳 Plan Your Trip with Tripperfly
+        </h2>
+
+        <p style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          Details bharo — hum WhatsApp pe aapse connect kar lenge 💛
+        </p>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+
+            const name = e.target.name.value;
+            const phone = e.target.phone.value;
+            const journey = e.target.journey.value;
+            const message = e.target.message.value;
+
+            const text = `Hi Tripperfly! 🌍
+Name: ${name}
+Phone: ${phone}
+Journey Type: ${journey}
+Message: ${message}`;
+
+            window.open(
+              `https://wa.me/919799992378?text=${encodeURIComponent(text)}`,
+              "_blank"
+            );
+          }}
+          style={{
+            maxWidth: "500px",
+            margin: "0 auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          <input required name="name" placeholder="Full Name" />
+          <input required name="phone" placeholder="WhatsApp Number" />
+          <select name="journey">
+            <option>Trek</option>
+            <option>Trip</option>
+            <option>Yatra</option>
+            <option>Not Sure Yet</option>
+          </select>
+          <textarea
+            name="message"
+            placeholder="Tell us what you’re looking for..."
+            rows="4"
+          />
+
+          <button
+            type="submit"
+            style={{
+              backgroundColor: "#ff6600",
+              color: "#fff",
+              padding: "0.8rem",
+              borderRadius: "25px",
+              fontWeight: "bold",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            Start My Journey
+          </button>
+        </form>
+      </section>
+
 
       {/* Contact */}
       <section
