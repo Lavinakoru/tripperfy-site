@@ -118,84 +118,38 @@ useEffect(() => {
       </nav>
       <div style={{ height: "10px" }} />
 
-      {/* Hero Section */}
-      <header
-        id="home"
-        style={{
-          background: "linear-gradient(135deg, #060606ff, #060606ff)",
-          color: "#fff",
-          padding: "1rem 1rem",
-          textAlign: "center",
-          borderRadius: "20px",
-          marginTop: "1rem",
-        }}
-      >
-        <img
-          src="/tripperflylogo.jpeg"
-          alt="Tripperfly Logo"
-          style={{   width: "clamp(220px, 40vw, 380px)",  display: "block",  margin: "0 auto 1rem", borderRadius: "20px" }}
-         />
+     
+       {/* Hero Section */}
+<header id="home" className="hero">
+  <img
+    src="/tripperflylogo.jpeg"
+    alt="Tripperfly Logo"
+    className="hero-logo"
+  />
 
-        <h1
-          style={{
-            fontSize: "clamp(2rem, 6vw, 3.5rem)",
-            margin: "1rem 0",
-            fontWeight: 800,
-          }}
-        >
-          TripperFly
-        </h1>
+  <h1 className="hero-title">Tripperfly</h1>
 
-        <p
-          style={{
-            fontSize: "clamp(1rem, 4vw, 1.4rem)",
-            fontWeight: "bold",
-          }}
-        >
-          Har trip pe fly karo, Tripperfly karo!
-        </p>
+  <p className="hero-subtitle">
+    Har trip pe fly karo, Tripperfly karo!
+  </p>
 
-        <div style={{
-          marginTop: "2rem",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "1rem"
-          }}>
-          <a
-            href="https://wa.me/919799992378"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              padding: "0.8rem 1.5rem",              
-              backgroundColor: "#25D366",
-              color: "#fff",
-              fontWeight: "bold",
-              textDecoration: "none",
-              borderRadius: "25px",
-              display: "inline-block",
-            }}
-          >
-            WhatsApp Us
-          </a>
+  {/* Buttons container */}
+  <div className="hero-btn-container">
+    <a
+      href="https://wa.me/919799992378"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hero-btn"
+    >
+      WhatsApp Us
+    </a>
 
-         <a
-  href="#book-now"
-  style={{
-    padding: "0.8rem 1.5rem",
-    backgroundColor: "#ff3300",
-    color: "#fff",
-    fontWeight: "bold",
-    textDecoration: "none",
-    borderRadius: "25px",
-    display: "inline-block",
-  }}
->
-  Book Now
-</a>
+    <a href="#book-now" className="hero-btn">
+      Book Now
+    </a>
+  </div>
+</header>
 
-        </div>
-      </header>
 
       {/* ⭐ INSERTED BLOG SECTION HERE */}
       <div id="blogs">
@@ -365,7 +319,7 @@ useEffect(() => {
       <section
         id="book-now"
         style={{
-          background: "#fff",
+          background: "#347af3e2",
           padding: "2rem",
           borderRadius: "15px",
           marginTop: "3rem",
@@ -447,51 +401,44 @@ Message: ${message}`;
 
 
       {/* Contact */}
-      <section
-        id="contact"
-        style={{
-          background: "#fff",
-          padding: "1.5rem",
-          borderRadius: "15px",
-          marginTop: "3rem",
-          marginBottom: "3rem",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "clamp(1.6rem, 4vw, 2rem)",
-            fontWeight: "800",
-            marginBottom: "1rem",
-          }}
-        >
-          Get in Touch
-        </h2>
+      {/* Contact */}
+<section
+  id="contact"
+  style={{
+    background: "#fff",
+    padding: "1.5rem",
+    borderRadius: "15px",
+    marginTop: "3rem",
+    marginBottom: "3rem",
+  }}
+>
+  <h2
+    style={{
+      fontSize: "clamp(1.6rem, 4vw, 2rem)",
+      fontWeight: "800",
+      marginBottom: "1rem",
+    }}
+  >
+    Get in Touch
+  </h2>
 
-        <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
-          Contact: <strong>9799992378</strong>
-        </p>
+  <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
+    Contact: <strong>9799992378</strong>
+  </p>
 
-        <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
-          Instagram:{" "}
-          <a href="https://instagram.com/tripperfly" style={{ color: "#ff6600" }}>
-            @tripperfly
-          </a>
-        </p>
+  <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
+    Instagram: <a href="https://instagram.com/tripperfly">@tripperfly</a>
+  </p>
 
-        <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
-          Website:{" "}
-          <a href="https://www.tripperfly.in" style={{ color: "#ff6600" }}>
-            www.tripperfly.in
-          </a>
-        </p>
+  <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
+    Website: <a href="https://www.tripperfly.in">www.tripperfly.in</a>
+  </p>
 
-        <p style={{ fontSize: "1.1rem" }}>
-          Email:{" "}
-          <a href="mailto:tripperfly.care@gmail.com" style={{ color: "#ff6600" }}>
-            tripperfly.care@gmail.com
-          </a>
-        </p>
-      </section>
+  <p style={{ fontSize: "1.1rem" }}>
+    Email: <a href="mailto:tripperfly.care@gmail.com">tripperfly.care@gmail.com</a>
+  </p>
+</section>
+
     </div>
   );
 }
