@@ -37,26 +37,31 @@ useEffect(() => {
   const trips = [
   {
     name: "Tungnath Trek",
-    image: "/images/tungnath.jpeg",
+    image: "/images/tungnath.jpg",
     description: "Chopta to Tungnath & Chandrashila trek with stunning Himalayan views.",
     itinerary: null,
   },
   {
     name: "Yulla Kanda Trek",
-    image: "/images/yulla.jpeg",
+    image: "/images/yulla.jpg",
     description: "Hidden lake trek in Himachal with a Shiva temple in the middle of the lake.",
     itinerary: null,
   },
- 
+  {
+    name: "Kedarnath Trek",
+    image: "/images/kedarnath.jpg",
+    description: "Sacred trek to Kedarnath temple surrounded by majestic Himalayas.",
+    itinerary: null,
+  },
   {
     name: "Har Ki Dun Trek",
-    image: "/images/harkidun.jpeg",
+    image: "/images/harkidun.jpg",
     description: "Beautiful valley trek known for rivers, forests, and ancient villages.",
     itinerary: null,
   },
   {
     name: "Char Dham Yatra",
-    image: "/images/chardham.jpeg",
+    image: "/images/chardham.jpg",
     description: "Spiritual journey covering Yamunotri, Gangotri, Kedarnath & Badrinath.",
     itinerary: null,
   },
@@ -82,7 +87,7 @@ useEffect(() => {
     width: "100%",
     maxWidth: "100%",
     margin: "0 auto",
-    padding: "0 2rem",
+    padding: "0 2 rem",
     overflowX: "hidden",
   };
 
@@ -350,7 +355,7 @@ useEffect(() => {
 <section
   style={{
     marginTop: "3rem",
-    padding: "3rem 1rem",
+    padding: "2rem",
     borderRadius: "20px",
     background: "linear-gradient(135deg, #f8f9fb, #eef1f5)",
   }}
@@ -364,49 +369,31 @@ useEffect(() => {
       color: "#222",
     }}
   >
-    🌍 Where Tripperfly Takes You 🌍
+    🌍 Explore Our Destinations
   </h2>
 
-<div
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", // bigger cards
-    gap: "2rem", // more breathing space
-    maxWidth: "1200px", // center layout
-    margin: "0 auto",
-  }}
->
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+      gap: "1.5rem",
+    }}
+  >
     {[
       {
         name: "Tungnath",
-        image: "/images/tungnath.jpeg",
-        price: "₹5,999",
+        image: "/images/tungnath.jpg",
+        price: "₹4,999",
       },
       {
         name: "Kedarnath",
-        image: "/images/kedarnath.jpeg",
-        price: "₹9,999",
+        image: "/images/kedarnath.jpg",
+        price: "₹6,999",
       },
-            {
-        name: "Kedarkantha",
-        image: "/images/kedarkantha.jpeg",
-        price: "₹4,999",
-      },
-      
       {
         name: "Har Ki Dun",
-        image: "/images/harkidun.jpeg",
+        image: "/images/harkidun.jpg",
         price: "₹7,499",
-      },
-       {
-        name: "Banaras",
-        image: "/images/banaras.jpeg",
-        price: "₹4,999",
-      },
-             {
-        name: "Agra",
-        image: "/images/agra.jpeg",
-        price: "₹4,999",
       },
       {
         name: "Kuari Pass",
@@ -415,28 +402,23 @@ useEffect(() => {
       },
       {
         name: "Goa",
-        image: "/images/goa.jpeg",
+        image: "/images/goa.jpg",
         price: "₹8,999",
       },
       {
         name: "Udaipur",
-        image: "/images/udaipur.jpeg",
+        image: "/images/udaipur.jpg",
         price: "₹3,999",
-      },
-       {
-        name: "Jaipur",
-        image: "/images/jaipur.jpeg",
-        price: "₹4,999",
       },
       {
         name: "Pushkar",
-        image: "/images/pushkar.jpeg",
+        image: "/images/pushkar.jpg",
         price: "₹2,999",
       },
       {
-        name: "Jaiselmer",
-        image: "/images/jaiselmer.jpeg",
-        price: "₹6,499",
+        name: "Mount Abu",
+        image: "/images/mountabu.jpg",
+        price: "₹3,499",
       },
     ].map((place) => (
       <div
@@ -448,8 +430,6 @@ useEffect(() => {
           cursor: "pointer",
           boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
           transition: "0.3s",
-          width: "100%",          // ADD THIS
-          height: "280px",        // FIX HEIGHT (no random shrink)
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "scale(1.05)";
@@ -538,7 +518,7 @@ useEffect(() => {
             fontWeight: "800",
           }}
         >
-          Youtube Videos
+          Videos
         </h2>
 
         <div
@@ -570,7 +550,7 @@ useEffect(() => {
       <section
         id="book-now"
         style={{
-          background: "#1f33c9ff",
+          background: "#347af3e2",
           padding: "2rem",
           borderRadius: "15px",
           marginTop: "3rem",
@@ -582,13 +562,12 @@ useEffect(() => {
             fontWeight: "900",
             marginBottom: "1rem",
             textAlign: "center",
-            color: "#ffffffff",
           }}
         >
           🧳 Plan Your Trip with Tripperfly
         </h2>
 
-        <p style={{ fontSize: "clamp(1.6rem, 1vw, 2.2rem)", textAlign: "center", marginBottom: "1.5rem" , color: "#eae8e6fb"}}>
+        <p style={{ textAlign: "center", marginBottom: "1.5rem" }}>
           Details bharo — hum WhatsApp pe aapse connect kar lenge 💛
         </p>
 
@@ -601,7 +580,7 @@ useEffect(() => {
             const journey = e.target.journey.value;
             const message = e.target.message.value;
 
-            const text = `Hi Tripperfly! I have an Enquiry about a Trip🌍
+            const text = `Hi Tripperfly! 🌍
 Name: ${name}
 Phone: ${phone}
 Journey Type: ${journey}
@@ -668,7 +647,7 @@ Message: ${message}`;
       textAlign: "center",
     }}
   >
-    🌟 Reviews & Memories 🌟
+    🌟 Reviews & Memories
   </h2>
 
   {/* Images */}
@@ -680,18 +659,11 @@ Message: ${message}`;
       marginBottom: "1.5rem",
     }}
   >
-    <img src="/images/review1.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review2.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review3.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review4.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review5.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review6.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review7.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review8.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review9.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review10.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review11.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review12.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
+    <img src="/images/review1.jpg" style={{ height: "200px", borderRadius: "10px" }} />
+    <img src="/images/review2.jpg" style={{ height: "200px", borderRadius: "10px" }} />
+    <img src="/images/review3.jpg" style={{ height: "200px", borderRadius: "10px" }} />
+    <img src="/images/review4.jpg" style={{ height: "200px", borderRadius: "10px" }} />
+    <img src="/images/review5.jpg" style={{ height: "200px", borderRadius: "10px" }} />
   </div>
 
   {/* Reviews */}
@@ -711,6 +683,7 @@ Message: ${message}`;
 </section>
 
 
+      {/* Contact */}
       {/* Contact */}
 <section
   id="contact"

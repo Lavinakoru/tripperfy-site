@@ -1,43 +1,23 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import BlogsSection from "./BlogsSection";
+import BlogsSection from "../BlogsSection";
+import { Link } from "react-router-dom";
 
-function App() {const [isScrolled, setIsScrolled] = useState(false);
+const Home = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
 
-useEffect(() => {
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
-  const blogs = [
-    {
-      title: "Top 5 Treks in India",
-      summary: "Discover breathtaking treks from the Himalayas to the Western Ghats...",
-      link: "#",
-    },
-    {
-      title: "Travel Tips for Beginners",
-      summary: "Everything you need to know before your first adventure...",
-      link: "#",
-    },
-  ];
-
-  const videos = ["tY1iiMZkHP8", "6kFk13HfNNE", "AVJ6Pztv_yM", "n5eVzyNZHlc", "Jl56to_9WIA"];
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const treks = [
     {
       name: "Kuari Pass Trek",
       image: "/images/kuari.jpeg",
-      description:
-        "Explore the trail once walked by Lord Curzon — breathtaking views of Nanda Devi and the Garhwal Himalayas.",
+      description: "Explore the trail once walked by Lord Curzon...",
       itinerary: [
         "Day 1: Arrive at Rishikesh – Trek briefing",
         "Day 2: Tugasi to Guling campsite",
@@ -49,20 +29,19 @@ useEffect(() => {
     {
       name: "Kedarkantha Trek",
       image: "/images/kedarkantha.jpeg",
-      description:
-        "The winter wonderland of Uttarakhand! Experience snow trails, pine forests, and sunrise summit views.",
+      description: "The winter wonderland of Uttarakhand!",
       itinerary: null,
     },
     {
       name: "Aravalli Trails",
       image: "/images/aravali.jpeg",
-      description:
-        "Discover Rajasthan’s rugged beauty — hidden lakes, dry forests, and ancient trails near Jaipur.",
+      description: "Discover Rajasthan’s rugged beauty...",
       itinerary: null,
     },
   ];
 
-  // ⭐ No horizontal scroll
+  const videos = ["tY1iiMZkHP8", "6kFk13HfNNE", "AVJ6Pztv_yM", "n5eVzyNZHlc", "Jl56to_9WIA"];
+
   const containerStyle = {
     fontFamily: "Arial, sans-serif",
     backgroundColor: "#71bedaff",
@@ -75,7 +54,7 @@ useEffect(() => {
 
   return (
     <div style={containerStyle}>
-      {/* Navigation */}
+        {/* Navigation */}
     <nav
       style={{
         backdropFilter: "blur(6px)",
@@ -118,83 +97,66 @@ useEffect(() => {
       </nav>
       <div style={{ height: "10px" }} />
 
+     
        {/* Hero Section */}
-       <header id="home" className="hero">
-  
-        <img
-          src="/tripperflylogo.jpeg"
-          alt="Tripperfly Logo"
-          style={{ display: "block" }}
+<header id="home" className="hero">
+  <img
+    src="/tripperflylogo.jpeg"
+    alt="Tripperfly Logo"
+    className="hero-logo"
+  />
 
-         />
+  <h1 className="hero-title">Tripperfly</h1>
 
-        <h1
-          style={{
-            fontSize: "clamp(2rem, 6vw, 3.5rem)",
-            margin: "1rem 0",
-            fontWeight: 800,
-          }}
-        >
-          Tripperfly
-        </h1>
+  <p className="hero-subtitle">
+    Har trip pe fly karo, Tripperfly karo!
+  </p>
 
-        <p
-          style={{
-            fontSize: "clamp(1rem, 4vw, 1.4rem)",
-            fontWeight: "bold",
-          }}
-        >
-          Har trip pe fly karo, Tripperfly karo!
-        </p>
+  {/* Buttons container */}
+  <div className="hero-btn-container">
+    <a
+      href="https://wa.me/919799992378"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hero-btn"
+    >
+      WhatsApp Us
+    </a>
 
-        <div style={{
-          marginTop: "2rem",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "1rem"
-          }}>
-          <a
-            href="https://wa.me/919799992378"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              padding: "0.8rem 1.5rem",              
-              backgroundColor: "#25D366",
-              color: "#fff",
-              fontWeight: "bold",
-              textDecoration: "none",
-              borderRadius: "25px",
-              display: "inline-block",
-            }}
-          >
-            WhatsApp Us
-          </a>
+    <a href="#book-now" className="hero-btn">
+      Book Now
+    </a>
+  </div>
+</header>
 
-         <a
-  href="#book-now"
-  style={{
-    padding: "0.8rem 1.5rem",
-    backgroundColor: "#ff3300",
-    color: "#fff",
-    fontWeight: "bold",
-    textDecoration: "none",
-    borderRadius: "25px",
-    display: "inline-block",
-  }}
->
-  Book Now
-</a>
 
+
+      {/* Festivals / Sangla Holi card */}
+      <section id="events" style={{ marginTop: "3rem" }}>
+        <h2 style={{ textAlign: "center", fontSize: "clamp(1.6rem, 5vw, 2.4rem)", fontWeight: "900", marginBottom: "2rem" }}>
+          🎉 Festivals, Events & Special Treks
+        </h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.8rem", maxWidth: "1100px", margin: "0 auto" }}>
+          <div className="card">
+            <img src="/images/Holi-sangla.jpeg" alt="Sangla Holi Trip" />
+            <div className="card-content">
+              <h3>🎨 Sangla Holi Special</h3>
+              <p>Celebrate Holi in the heart of the Himalayas 🌸...</p>
+              <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
+                <Link to="/blogs/sangla-holi" className="btn btn-secondary">Read Blog</Link>
+                <a href="https://wa.me/919799992378?text=Hi%20Tripperfly!%20I%20want%20details%20about%20Sangla%20Holi%20Trip" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book Now</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </header>
+      </section>
 
-      {/* ⭐ INSERTED BLOG SECTION HERE */}
+      {/* Blog Section */}
       <div id="blogs">
         <BlogsSection />
       </div>
 
-      {/* Featured Treks */}
+            {/* Featured Treks */}
       <section style={{ marginTop: "3rem" }}>
   <h2
     style={{
@@ -357,7 +319,7 @@ useEffect(() => {
       <section
         id="book-now"
         style={{
-          background: "#1336e7ff",
+          background: "#347af3e2",
           padding: "2rem",
           borderRadius: "15px",
           marginTop: "3rem",
@@ -439,53 +401,46 @@ Message: ${message}`;
 
 
       {/* Contact */}
+
       <section
-        id="contact"
-        style={{
-          background: "#fff",
-          padding: "1.5rem",
-          borderRadius: "15px",
-          marginTop: "3rem",
-          marginBottom: "3rem",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "clamp(1.6rem, 4vw, 2rem)",
-            fontWeight: "800",
-            marginBottom: "1rem",
-          }}
-        >
-          Get in Touch
-        </h2>
+  id="contact"
+  style={{
+    background: "#fff",
+    padding: "1.5rem",
+    borderRadius: "15px",
+    marginTop: "3rem",
+    marginBottom: "3rem",
+  }}
+>
+  <h2
+    style={{
+      fontSize: "clamp(1.6rem, 4vw, 2rem)",
+      fontWeight: "800",
+      marginBottom: "1rem",
+    }}
+  >
+    Get in Touch
+  </h2>
 
-        <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
-          Contact: <strong>9799992378</strong>
-        </p>
+  <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
+    Contact: <strong>9799992378</strong>
+  </p>
 
-        <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
-          Instagram:{" "}
-          <a href="https://instagram.com/tripperfly" style={{ color: "#ff6600" }}>
-            @tripperfly
-          </a>
-        </p>
+  <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
+    Instagram: <a href="https://instagram.com/tripperfly">@tripperfly</a>
+  </p>
 
-        <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
-          Website:{" "}
-          <a href="https://www.tripperfly.in" style={{ color: "#ff6600" }}>
-            www.tripperfly.in
-          </a>
-        </p>
+  <p style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>
+    Website: <a href="https://www.tripperfly.in">www.tripperfly.in</a>
+  </p>
 
-        <p style={{ fontSize: "1.1rem" }}>
-          Email:{" "}
-          <a href="mailto:tripperfly.care@gmail.com" style={{ color: "#ff6600" }}>
-            tripperfly.care@gmail.com
-          </a>
-        </p>
-      </section>
+  <p style={{ fontSize: "1.1rem" }}>
+    Email: <a href="mailto:tripperfly.care@gmail.com">tripperfly.care@gmail.com</a>
+  </p>
+</section>
+
     </div>
   );
-}
+};
 
-export default App;
+export default Home;
