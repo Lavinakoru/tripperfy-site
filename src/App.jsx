@@ -82,7 +82,7 @@ useEffect(() => {
     width: "100%",
     maxWidth: "100%",
     margin: "0 auto",
-    padding: "0 2rem",
+    padding: "0 1rem",
     overflowX: "hidden",
   };
 
@@ -106,7 +106,8 @@ useEffect(() => {
       display: "flex",
       justifyContent: "center",
       flexWrap: "wrap",
-      gap: isScrolled ? "0.4rem" : "0.7rem",
+      padding: isScrolled ? "0.3rem" : "0.5rem",   // 🔥 smaller for mobile
+      gap: "0.5rem",                                // 🔥 fixed gap (not dynamic)
 
      boxShadow: isScrolled ? "0 4px 10px rgba(0,0,0,0.35)" : "none",
      }}
@@ -117,7 +118,7 @@ useEffect(() => {
     key={i}
     href={"#" + i.toLowerCase()}
     style={{
-      margin: "0 1rem",
+      margin: "0 0.5rem",
       color: "#fff",
       fontWeight: "bold",
       textDecoration: "none",
@@ -370,7 +371,7 @@ useEffect(() => {
 <div
   style={{
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", // bigger cards
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", // bigger cards
     gap: "2rem", // more breathing space
     maxWidth: "1200px", // center layout
     margin: "0 auto",
@@ -449,7 +450,7 @@ useEffect(() => {
           boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
           transition: "0.3s",
           width: "100%",          // ADD THIS
-          height: "280px",        // FIX HEIGHT (no random shrink)
+          height: "auto",        // FIX HEIGHT (no random shrink)
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "scale(1.05)";
@@ -464,7 +465,7 @@ useEffect(() => {
           alt={place.name}
           style={{
             width: "100%",
-            height: "240px",
+            height: "clamp(160px, 25vw, 220px)",
             objectFit: "cover",
           }}
         />
@@ -680,18 +681,18 @@ Message: ${message}`;
       marginBottom: "1.5rem",
     }}
   >
-    <img src="/images/review1.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review2.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review3.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review4.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review5.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review6.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review7.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review8.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review9.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review10.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review11.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
-    <img src="/images/review12.jpeg" style={{ height: "200px", borderRadius: "10px" }} />
+    <img src="/images/review1.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review2.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review3.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review4.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review5.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review6.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review7.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review8.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review9.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review10.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review11.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
+    <img src="/images/review12.jpeg" style={{ height: "160px", borderRadius: "10px", flexShrink: 0 }} />
   </div>
 
   {/* Reviews */}
