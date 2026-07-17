@@ -607,7 +607,7 @@ Har Trip pe Fly Karo. Tripperfly Karo.
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 Tripperfly. All rights reserved.</p>
+          <p>© 2024 Tripperfly. All rights reserved.</p>
         </div>
       </footer>
 
